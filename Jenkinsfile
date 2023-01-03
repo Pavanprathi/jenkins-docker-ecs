@@ -13,23 +13,20 @@ pipeline {
 	registryCredential = "AKIA474VMGQBHQZC4ZWR"
     }
    
-    stages {
-
-    // Tests
-         
+    stages {             
     // Building Docker images
-    stage('Building image') {
-      steps{
-        script {
+      stage('Building image') {
+         steps{
+          script {
           dockerImage = docker.build "${IMAGE_REPO_NAME}:${IMAGE_TAG}"
         }
       }
     }
    
     // Uploading Docker images into AWS ECR
-    stage('Pushing to ECR') {
-     steps{  
-         script {
+      stage('Pushing to ECR') {
+         steps{  
+           script {
 			docker.withRegistry("https://" + REPOSITORY_URI, "ecr:${AWS_DEFAULT_REGION}:" + registryCredential) {
                     	dockerImage.push()
                 	}
@@ -37,8 +34,8 @@ pipeline {
         }
       }
       
-    stage('Deploy') {
-     steps{
+      stage('Deploy') {
+         steps{
             withAWS(credentials: registryCredential, region: "${AWS_DEFAULT_REGION}") {
                 script {
 			sh './script.sh'
