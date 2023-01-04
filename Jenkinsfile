@@ -10,7 +10,7 @@ pipeline {
         IMAGE_REPO_NAME="jenkins-docker-ecs"
         IMAGE_TAG="${env.BUILD_ID}"
         REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
-	registryCredential = "AKIA474VMGQBHQZC4ZWR"
+	registryCredential = "jenkins-docker-ecs"
     }
    
     stages {             
