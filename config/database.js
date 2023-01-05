@@ -1,10 +1,11 @@
 // database module
 var mysql = require('mysql');
 var config = {
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'aStore'
+    host: '127.0.0.1',
+    port: 3306,
+    user: 'cybermart',
+    password: 'cybermart',
+    database: 'cybermart'
 };
 
 // init database

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "nodemon ./bin/www.js"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
@@ -22,5 +22,8 @@
     "connect-flash": "~0.1.1",
     "express-session": "~1.12.1",
     "csrf": "~3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }
